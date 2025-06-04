@@ -272,7 +272,7 @@ const PageRankRecommendationSystem: React.FC = () => {
     <div className="min-h-screen bg-gray-100 py-8 px-4">
       <div className="max-w-7xl mx-auto space-y-6">
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-800 mb-2">🚀 GPU PageRank 알고리즘 추천 시스템</h1>
+          <h1 className="text-4xl font-bold text-gray-800 mb-2">GPU PageRank 알고리즘 추천 시스템</h1>
           <p className="text-lg text-gray-600">실험 결과 기반 데이터셋별 최적 PageRank 알고리즘 추천</p>
           <p className="text-sm text-gray-500 mt-2">한국외국어대학교 컴퓨터공학부 캡스톤설계 팀 4 연구 결과</p>
         </div>
