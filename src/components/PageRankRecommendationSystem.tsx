@@ -86,7 +86,8 @@ const PageRankRecommendationSystem: React.FC = () => {
   };
 
   const calculateMemoryRequirement = (edges: number): number => {
-    return (edges * 0.025) / 1024; // 실험 결과: 엣지당 0.025KB
+    // 실험 결과: 엣지당 0.025KB → 총 KB → MB → GB
+    return (edges * 0.025) / 1024 / 1024;
   };
 
   const getRecommendationForDataset = (dataset: GraphDataset, memoryLimit: number = 20): RecommendationResult => {
