@@ -115,6 +115,7 @@ const PageRankRecommendationSystem: React.FC = () => {
       recommendation.partitionCount = partitions;
     }
 
+    const avgDegree = edges / nodes;
     const highPrecision = tolerance && tolerance < 1e-7;
 
     // 실험 결과 기반 상세 알고리즘 선택 로직
@@ -139,7 +140,13 @@ const PageRankRecommendationSystem: React.FC = () => {
       }
     } else if (nodes < 1000000) {
       // 중간규모 그래프
-      if (density > 30) {
+      if (avgDegree >= 50) {
+        recommendation.algorithm = 'Power Method';
+        recommendation.framework = 'cuGraph';
+        recommendation.performance = '높음';
+        recommendation.reasoning = '평균 차수 ≥ 50일 경우 cuGraph가 최적 성능을 보임';
+        recommendation.alternatives = ['Gunrock'];
+      } else if (density > 30) {
         // 고밀도 (Orkut 수준)
         recommendation.algorithm = 'Gauss-Seidel Method';
         recommendation.framework = 'Custom GPU Implementation';
